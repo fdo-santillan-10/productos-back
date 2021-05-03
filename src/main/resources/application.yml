@@ -1,0 +1,35 @@
+server:
+  port: 8280
+spring:
+profiles:
+  active: dev
+  application:
+    name: productos
+
+---
+spring:
+  profiles: dev
+  datasource:
+    driverClassName: org.h2.Driver
+    url: jdbc:h2:mem:testdb
+    username: sa
+    password: fer123
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: true
+    open-in-view: false
+  data:
+    mongodb:
+      authentication-database: admin
+      username: admin
+      password: Fer123
+      database: test
+      port: 27017
+      host: localhost      
+      #url: mongodb://admin:Fer123@localhost:27017/test      
+springdoc:
+  swagger-ui:
+    operations-sorter: method
+    path: /swagger-ui-custom.html
